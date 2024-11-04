@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Button } from './Button';
 import { NewItem } from './NewItem';
 import { ListItem, ItemProps } from './ListItem';
