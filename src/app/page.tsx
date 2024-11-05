@@ -62,10 +62,13 @@ export default function Home() {
   useCustomEventListener('open-dialog', () => {
     setOpenDialog(true)
   })
+
+  useCustomEventListener('close-dialog', () => {
+    setOpenDialog(false)
+  })
   return (
     
     <div className="flex flex-1 flex-col max-w-[1440px] mx-auto font-['Montserrat']">
-      {showSession()}
       <Head>
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>

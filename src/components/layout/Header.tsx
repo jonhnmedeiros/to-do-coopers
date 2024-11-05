@@ -1,29 +1,56 @@
 import Image from 'next/image'
-//import {useState} from 'react'
-import { FaSignInAlt } from 'react-icons/fa'
+
+import { signOut, useSession } from "next-auth/react";
+import { FaSignInAlt, FaSignOutAlt} from 'react-icons/fa'
 import { emitCustomEvent } from 'react-custom-events'
 import { Button } from '../Button'
 
 export const Header = () => {
-  //const [openDialog, setOpenDialog] = useState(false)
+  const { status } = useSession();
   return (
     <header className="flex flex-col pt-6 bg-none bg-right md:bg-[350px] md:bg-[url('/bg-hero.png')] md:bg-no-repeat lg:bg-right">
       <div id="main-header" className="flex justify-between w-full px-2 lg:px-0 mx-auto max-w-[1280px]">
         <h1>
           <Image src="/logo-coopers.svg" alt="logo with coopers text and a green left angular bracket" width={217} height={50} />
         </h1>
-        <button
+        {status === "authenticated" && (
+          <>
+            <button
+              className="bg-black hidden md:block text-white w-[120px] h-10 text-sm leading-[21px] pt-[9px] pb-[10px] pl-10 pr-[35px]"
+              onClick={() => signOut({ redirect: false })}
+            >
+              logout
+            </button>
+            <button
+              className="bg-black md:hidden text-white text-center rounded h-10 text-md leading-[21px] px-4 pt-[5px] pb-[5px]"
+              onClick={() => signOut({ redirect: false })}
+            >
+              <FaSignOutAlt />
+            </button>
+          </>
+
+        )}
+        {status == "loading" && (
+          <p>Loading...</p>
+        )}
+        {status !== "authenticated" && (
+          <>
+                    <button
           className="bg-black md:hidden text-white text-center rounded h-10 text-md leading-[21px] px-4 pt-[5px] pb-[5px]"
           onClick={() => emitCustomEvent('open-dialog')}
         >
           <FaSignInAlt />
         </button>
+
         <button
           className="bg-black hidden md:block text-white w-[120px] h-10 text-sm leading-[21px] pt-[9px] pb-[10px] pl-10 pr-[35px]"
           onClick={() => emitCustomEvent('open-dialog')}
         >
-          entrar
+          login
         </button>
+          </>
+        )}
+
       </div>
 
       <div id="hero" className="flex justify-between w-full px-1 mx-auto max-w-[1280px] mt-[52px]">
