@@ -1,3 +1,5 @@
+import { Provider } from  "./provider";
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -21,11 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <Provider>
+        <body
+          className={`${montserrat.variable} antialiased inter.className`}
+        >
+          {children}
+        </body>
+      </Provider>
     </html>
   );
 }

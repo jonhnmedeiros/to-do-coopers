@@ -1,5 +1,9 @@
 'use client'
 
+import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition, DialogPanel, TransitionChild } from '@headlessui/react'
 import Image from 'next/image'
@@ -15,7 +19,38 @@ import ContactForm from '@/components/ContactForm'
 
 
 export default function Home() {
-  
+  const { status } = useSession();
+  const router = useRouter();
+
+  const showSession = () => {
+    if (status === "authenticated") {
+      return (
+        <button
+          className="border border-solid border-black rounded"
+          onClick={() => {
+            signOut({ redirect: false }).then(() => {
+              router.push("/");
+            });
+          }}
+        >
+          Sign Out
+        </button>
+      )
+    } else if (status === "loading") {
+      return (
+        <span className="text-[#888] text-sm mt-7">Loading...</span>
+      )
+    } else {
+      return (
+        <Link
+          href="/login"
+          className="border border-solid border-black rounded"
+        >
+          Sign In
+        </Link>
+      )
+    }
+  }
 
   const [openDialog, setOpenDialog] = useState(false)
   const [isSignUp, setIsSignUp] = useState(false)
@@ -28,7 +63,9 @@ export default function Home() {
     setOpenDialog(true)
   })
   return (
+    
     <div className="flex flex-1 flex-col max-w-[1440px] mx-auto font-['Montserrat']">
+      {showSession()}
       <Head>
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
@@ -92,7 +129,9 @@ export default function Home() {
         </Dialog>
       </Transition>
       <Header />
+      
       <main className=" flex flex-1 flex-col text-center">
+        
         <section id="todo-list">
         <TodoListSection />
         </section>        
