@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         <a href="mailto:coopers@coopers.pro" className="mt-7 leading-none">
           coopers@coopers.pro
         </a>
-        <p className="mt-5 text-sm">© 2021 Coopers. All rights reserved.</p>
+        <p className="mt-5 text-sm">© 2024 Coopers. All rights reserved.</p>
         <Image src="/bg-footer.svg" alt="Rectangle green footer" width={511} height={41} className='mt-8' />
       </div>
     </footer>

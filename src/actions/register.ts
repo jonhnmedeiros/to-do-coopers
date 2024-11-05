@@ -4,6 +4,7 @@ import User from "@/models/User";
 import bcrypt from "bcryptjs";
 
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const register = async (values: any) => {
     const { email, password, name } = values;
 
@@ -21,7 +22,7 @@ export const register = async (values: any) => {
           email,
           password: hashedPassword,
         });
-        const savedUser = await user.save();
+        await user.save();
 
     }catch(e){
         console.log(e);
