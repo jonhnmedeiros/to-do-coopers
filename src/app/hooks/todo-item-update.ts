@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import {
   TodoItemType,
   TodoItemTypeWithouId,
-} from "../definitions/todo-definition";
+} from "@/models/Todo";
 import { CRUDState } from "./todo-list-crud";
 
 const TodoItemApi = () => {
