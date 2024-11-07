@@ -1,15 +1,16 @@
 import { TodoItemType } from "@/models/Todo";
 import TodoItem from "./todo-item";
-import { TodoItemManangerProp, TodoItemPropType } from "./todo-item-prop-def";
-import { useEffect, useState } from "react";
+import { TodoItemManangerProp } from "./todo-item-prop-def";
+import { useEffect } from "react";
 import TodoItemApi from "@/app/hooks/todo-item-update";
 import { CRUDState } from "@/app/hooks/todo-list-crud";
 
 const TodoItemMananger = (props: TodoItemManangerProp) => {
   const { done, label, _id, setTodo, todoDeleted } = props;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   useEffect;
-  const { updateState, updateError, updateTodoListApi, deleteTodoItemApi } =
+  const { updateState, updateTodoListApi, deleteTodoItemApi } =
     TodoItemApi();
 
   async function updateTodoItem(data: TodoItemType) {

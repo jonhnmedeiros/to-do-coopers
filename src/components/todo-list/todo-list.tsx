@@ -1,7 +1,7 @@
 "use client";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import { TodoItemType } from "@/models/Todo";
-import TodoItem from "../todo-item/todo-item";
+//import TodoItem from "../todo-item/todo-item";
 import LoadingTodoItem from "../loading-todo-item";
 import TodoItemMananger from "../todo-item/todo-item-manager";
 

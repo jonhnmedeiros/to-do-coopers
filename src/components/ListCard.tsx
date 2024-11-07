@@ -1,4 +1,5 @@
 import { Button } from './Button';
+import { ItemProps } from './ListItem';
 // import { NewItem } from './NewItem';
 // import { ListItem, ItemProps } from './ListItem';
 import TodoManager from './todo-list/todo-manager';
@@ -15,7 +16,7 @@ interface TodoCardProps {
   children?: React.ReactElement;
 }
 
-export const ListCard = ({title, color, message, count, items, allowNew = false, children}: TodoCardProps) => {
+export const ListCard = ({title, color, message, count, allowNew = false}: TodoCardProps) => {
   return (
     <div className="flex flex-col w-[380px] max-w-[380px] shadow-lg bg-white">
       <div className={`h-5 w-full ${color}`}></div>

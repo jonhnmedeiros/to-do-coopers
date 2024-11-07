@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  TodoItemType,
+  //TodoItemType,
   TodoItemTypeWithouId,
 } from "@/models/Todo";
-import { faPlus, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
+//import { faPlus, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FormEvent, useState } from "react";
 import Image from 'next/image'
 
@@ -22,14 +22,14 @@ const NewTodoItem = (props: {
     props.addTodoItem(newTodoItem);
   }
 
-  function hideNewTodoItem(e: FormEvent<HTMLButtonElement>) {
-    e.preventDefault();
-    setShowForm(false);
-  }
+  // function hideNewTodoItem(e: FormEvent<HTMLButtonElement>) {
+  //   e.preventDefault();
+  //   setShowForm(false);
+  // }
 
   return (
     <div className={`${showForm ? "w-full" : ""}`}>
-      <li className="flex text-left" onClick={(e) => setShowForm(true)}>
+      <li className="flex text-left" onClick={() => setShowForm(true)}>
         <div className="flex" >
           <button><Image src="/icon-new-item.svg" alt="checked icon to add a new task" width={24} height={24} />
           </button>

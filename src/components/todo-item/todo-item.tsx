@@ -1,10 +1,10 @@
 "use client";
 //import { TodoItemType } from "@/models/Todo";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBan,
+  //faBan,
   //faCheck,
-  faCheckCircle,
+  //faCheckCircle,
   //faEdit,
   //faTrash,
 } from "@fortawesome/free-solid-svg-icons";
@@ -93,7 +93,7 @@ const TodoItem = (props: TodoItemPropType) => {
           } flex justify-items-center justify-between items-center h-full`}
         >
           <input
-            className={`text-orange-500 focus:outline-none break-words`}
+            className={`text-orange-500 focus:outline-none break-words text-[16px]`}
             type="text"
             value={newLabel}
             onChange={(e) => setNewLabel(e.target.value)}
