@@ -1,6 +1,7 @@
 import { Button } from './Button';
-import { NewItem } from './NewItem';
-import { ListItem, ItemProps } from './ListItem';
+// import { NewItem } from './NewItem';
+// import { ListItem, ItemProps } from './ListItem';
+import TodoManager from './todo-list/todo-manager';
 
 
 
@@ -29,14 +30,17 @@ export const ListCard = ({title, color, message, count, items, allowNew = false,
         <div id="itens-list" className="w-full px-[23px]">
           <ul>
             {
-              allowNew ? (<NewItem />) : null
+              allowNew ? 
+              // (<NewItem />) : null
+              <TodoManager></TodoManager> : <TodoManager></TodoManager>
             }
-            {
+            {/* {
+
               items.map((item: ItemProps) => {
                 return <ListItem key={item.id} title={item.title} done={item.done} id={item.id} />
               })
-            }
-            {children}
+            } */}
+            {/* {children} */}
           </ul>
           <Button text="erase all" extraClasses="mt-2 md:mt-[18px] bg-black" onClick={()=>{}} />
         </div>

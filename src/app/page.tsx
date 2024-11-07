@@ -14,6 +14,7 @@ import { TodoListSection } from '../components/layout/TodoListSection'
 import { GoodThingsSection } from '../components/layout/GoodThingsSection'
 import  Footer  from '../components/Footer'
 import ContactForm from '@/components/ContactForm'
+import TodoManager from '@/components/todo-list/todo-manager'
 
 
 export default function Home() {

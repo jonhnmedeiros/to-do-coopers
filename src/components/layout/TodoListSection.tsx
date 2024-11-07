@@ -1,5 +1,6 @@
 import { ListCard } from "../ListCard"
 import { ListItem } from "../ListItem"
+import TodoManager from "../todo-list/todo-manager"
 
 
 export const TodoListSection = () => {
@@ -72,12 +73,14 @@ export const TodoListSection = () => {
 
   return (
     <section id="todo-list">
+      
       <header className="text-center before:-z-10 pt-[85px] pb-[96px] before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-black relative">
         <h2 className="text-[50px] md:text-[60px] text-white font-semibold leading-[60px]">To-do List</h2>
         <hr className="w-[250px] md:w-[297px] mx-auto border-green-500 border-2" />
         <p className="w-full md:w-[600px] mx-auto mt-4 md:mt-8 text-white font-semibold text-[14px] md:text-[24px]">Drag and drop to set your main priorities, check when done and create what´s new.</p>
       </header>
       <div id="todo-screenshots" className="flex flex-wrap gap-4 justify-center items-start mt-10 md:mt-[80px] bg-white bg-[url('/bg-todo-section.png')] bg-no-repeat bg-left">
+
         <ListCard
           title="To-do"
           message="Take a breath. Start doing."
@@ -94,6 +97,7 @@ export const TodoListSection = () => {
           color="bg-orange-500"
           items={doneItems}
         />
+        
       </div>
     </section>
   )

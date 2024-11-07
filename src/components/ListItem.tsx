@@ -9,6 +9,8 @@ export interface ItemProps {
 }
 
 export const ListItem = ({title, done = false, extraClasses}: ItemProps) =>{
+
+  
   return (
     <li className={`group flex flex-1 w-full gap-4 mb-5 text-left items-center justify-between ${extraClasses}`}>
       <div className="leading-6">
