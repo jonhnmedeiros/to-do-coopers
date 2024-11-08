@@ -5,71 +5,71 @@ import { ListItem } from "../ListItem"
 
 export const TodoListSection = () => {
 
-  const doneItems = [
-    {
-      id: '1',
-      title: 'Get FTP credentials',
-      done: true
-    },
-    {
-      id: '2',
-      title: 'Home Page Design',
-      done: true
-    },
-    {
-      id: '3',
-      title: 'E-mail John about the deadline',
-      done: true
-    },
-    {
-      id: '4',
-      title: 'Create a Google Drive folder',
-      done: true
-    },
-    {
-      id: '5',
-      title: 'Send a gift to the client',
-      done: true
-    },
-  ]
+  // const doneItems = [
+  //   {
+  //     id: '1',
+  //     title: 'Get FTP credentials',
+  //     done: true
+  //   },
+  //   {
+  //     id: '2',
+  //     title: 'Home Page Design',
+  //     done: true
+  //   },
+  //   {
+  //     id: '3',
+  //     title: 'E-mail John about the deadline',
+  //     done: true
+  //   },
+  //   {
+  //     id: '4',
+  //     title: 'Create a Google Drive folder',
+  //     done: true
+  //   },
+  //   {
+  //     id: '5',
+  //     title: 'Send a gift to the client',
+  //     done: true
+  //   },
+  // ]
 
-  const todoItems = [
-    {
-      id: '1',
-      title: 'Develop the To-do list page',
-      done: false
-    },
-    {
-      id: '2',
-      title: 'Create the drag-and-drop function',
-      done: false
-    },
-    {
-      id: '3',
-      title: 'Add new tasks',
-      done: false
-    },
-    {
-      id: '4',
-      title: 'Delete itens',
-      done: false
-    },
-    {
-      id: '5',
-      title: 'Erase all',
-      done: false
-    },
-    {
-      id: '6',
-      title: 'Checked item goes to Done list',
-      done: false
-    },
-    {
-      id: '7',
-      title: 'This item label may be edited',
-      done: false
-    },
-  ]
+  // const todoItems = [
+  //   {
+  //     id: '1',
+  //     title: 'Develop the To-do list page',
+  //     done: false
+  //   },
+  //   {
+  //     id: '2',
+  //     title: 'Create the drag-and-drop function',
+  //     done: false
+  //   },
+  //   {
+  //     id: '3',
+  //     title: 'Add new tasks',
+  //     done: false
+  //   },
+  //   {
+  //     id: '4',
+  //     title: 'Delete itens',
+  //     done: false
+  //   },
+  //   {
+  //     id: '5',
+  //     title: 'Erase all',
+  //     done: false
+  //   },
+  //   {
+  //     id: '6',
+  //     title: 'Checked item goes to Done list',
+  //     done: false
+  //   },
+  //   {
+  //     id: '7',
+  //     title: 'This item label may be edited',
+  //     done: false
+  //   },
+  // ]
 
   return (
     <section id="todo-list">
@@ -86,16 +86,15 @@ export const TodoListSection = () => {
           message="Take a breath. Start doing."
           color="bg-green-500"
           allowNew
-          items={todoItems}
+          //items={todoItems}
         >
-          <ListItem title="Editing an item..." done={false} extraClasses="text-orange-500" id="123" />
         </ListCard>
         <ListCard
           title="Done"
           message="Congratulions!"
           count={5}
           color="bg-orange-500"
-          items={doneItems}
+          //items={doneItems}
         />
         
       </div>

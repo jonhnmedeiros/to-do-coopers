@@ -32,49 +32,6 @@ const TodoItem = (props: TodoItemPropType) => {
   }
   return (
     <>
-      {/* <div
-        className={`${
-          edit && "hidden"
-        } flex justify-items-center justify-between`}
-      >
-        <span className={`font-bold ${edit && "hidden"} leading-8`}>
-          {label}
-        </span>
-
-        <div className="p-1 flex justify-items-center justify-between items-center h-full">
-          <input
-            type="checkbox"
-            checked={done}
-            onChange={checkboxHandler}
-          ></input>
-          <button className="ml-3" onClick={(e) => editHandler()}>
-            <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
-          </button>
-          <button className="ml-3" onClick={(e) => deleteHandler()}>
-            <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-          </button>
-        </div>
-      </div>
-      <div
-        className={`${
-          !edit && "hidden"
-        } flex justify-items-center justify-between items-center h-full`}
-      >
-        <input
-          className={`font-bold`}
-          type="text"
-          value={newLabel}
-          onChange={(e) => setNewLabel(e.target.value)}
-        ></input>
-        <div>
-          <button className="ml-3" onClick={(e) => editHandler()}>
-            <FontAwesomeIcon icon={faCheckCircle}></FontAwesomeIcon>
-          </button>
-          <button className="ml-3" onClick={(e) => editHandler(false)}>
-            <FontAwesomeIcon icon={faBan}></FontAwesomeIcon>
-          </button>
-        </div>
-      </div> */}
       <div className={`group flex flex-1 w-full gap-4 mb-5 text-left items-center `}>
         <div className="leading-6 flex">
           <button onClick={checkboxHandler}>

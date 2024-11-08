@@ -8,8 +8,9 @@ import TodoList from "./todo-list";
 import TodoCrudMethods, { CRUDState } from "@/app/hooks/todo-list-crud";
 //import NewTodoItem from "../new-todo-item";
 import TodoToolbar from "../todo-toolbar";
+import Link from "next/link";
 
-const TodoManager = () => {
+const TodoManager = ({showTodos = false}) => {
   const {
     crudData,
     //crudError,
@@ -58,21 +59,42 @@ const TodoManager = () => {
   const todoDeleted = async () => {
     await fetchTodoItems();
   };
+
+    const findDoneItems =  () => {
+      //await getTodoListApi();
+      return crudData.filter((todo) => todo.done);
+    };
+
+    const  findNotDoneItems = () => {
+      //window.location.reload();
+    return crudData.filter((todo) => todo.done === false);
+  }
+
   return (
     <div>
       <div
         className={`${crudMethodState === CRUDState.Done ? "block" : "hidden"}`}
       >
-        <TodoToolbar
-          addTodoItem={addTodoItem}
-          queryString={query}
-          setQueryString={setQuery}
-        ></TodoToolbar>
-        <TodoList
-          todoList={filteredTodoList}
-          setTodoItem={setTodoItem}
-          todoItemDeleted={todoDeleted}
-        ></TodoList>
+        {showTodos ?           
+          <TodoToolbar
+            addTodoItem={addTodoItem}
+            queryString={query}
+            setQueryString={setQuery}
+          /> : null
+        }
+        { showTodos ? 
+          <TodoList
+            todoList={findNotDoneItems()}
+            setTodoItem={setTodoItem}
+            todoItemDeleted={todoDeleted}
+          /> : 
+          <TodoList
+            todoList={findDoneItems()}
+            setTodoItem={setTodoItem}
+            todoItemDeleted={todoDeleted}
+          ></TodoList> 
+        }
+
       </div>
       <div
         className={`${
