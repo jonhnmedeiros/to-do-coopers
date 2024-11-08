@@ -4,7 +4,9 @@ import { Button } from './Button';
 // import { NewItem } from './NewItem';
 // import { ListItem, ItemProps } from './ListItem';
 import TodoManager from './todo-list/todo-manager';
-import TodoCrudMethods, { CRUDState } from "@/app/hooks/todo-list-crud";
+import TodoCrudMethods 
+      //{ CRUDState } 
+from "@/app/hooks/todo-list-crud";
 import { TodoItemType } from '@/models/Todo';
 
 
@@ -33,7 +35,10 @@ export const ListCard = ({
   const [filteredTodoList, setFilteredTodoList] = useState(
     [] as TodoItemType[]
   );
-  const [query, setQuery] = useState("");
+  const [
+    query, 
+  //  setQuery
+  ] = useState("");
 
   useEffect(() => {
     try {
@@ -57,7 +62,7 @@ export const ListCard = ({
 
   function findDoneItems() {
     //await fetchTodoItems();
-    return crudData.filter((todo) => todo.done);
+    return filteredTodoList.filter((todo) => todo.done);
   }
 
   return (

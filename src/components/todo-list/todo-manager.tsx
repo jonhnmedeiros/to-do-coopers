@@ -8,7 +8,6 @@ import TodoList from "./todo-list";
 import TodoCrudMethods, { CRUDState } from "@/app/hooks/todo-list-crud";
 //import NewTodoItem from "../new-todo-item";
 import TodoToolbar from "../todo-toolbar";
-import Link from "next/link";
 
 const TodoManager = ({showTodos = false}) => {
   const {
@@ -21,7 +20,9 @@ const TodoManager = ({showTodos = false}) => {
   } = TodoCrudMethods();
 
   const [query, setQuery] = useState("");
-  const [filteredTodoList, setFilteredTodoList] = useState(
+  const [
+    filteredTodoList, 
+    setFilteredTodoList] = useState(
     [] as TodoItemType[]
   );
   useEffect(() => {
@@ -62,12 +63,12 @@ const TodoManager = ({showTodos = false}) => {
 
     const findDoneItems =  () => {
       //await getTodoListApi();
-      return crudData.filter((todo) => todo.done);
+      return filteredTodoList.filter((todo) => todo.done);
     };
 
     const  findNotDoneItems = () => {
       //window.location.reload();
-    return crudData.filter((todo) => todo.done === false);
+    return filteredTodoList.filter((todo) => todo.done === false);
   }
 
   return (
