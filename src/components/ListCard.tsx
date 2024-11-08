@@ -8,7 +8,7 @@ import TodoCrudMethods
       //{ CRUDState } 
 from "@/app/hooks/todo-list-crud";
 import { TodoItemType } from '@/models/Todo';
-import { useSession } from 'next-auth/react';
+
 
 
 interface TodoCardProps {
@@ -28,7 +28,6 @@ export const ListCard = ({
   count, 
   allowNew = false}: TodoCardProps) => {
 
-  const { data } = useSession();
 
   const {
     crudData,

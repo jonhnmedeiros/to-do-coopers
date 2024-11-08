@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import {
   TodoItemType,
   TodoItemTypeWithouId,
@@ -38,10 +38,6 @@ const TodoCrudMethods = () => {
   };
 
   const createTodoItemApi = async (newTodo: TodoItemTypeWithouId) => {
-    //const newTodoItem = JSON.stringify(newTodo);
-
-    //console.log(data);
-    //const params = { ...newTodoItem, email: data?.user?.email };
 
     const body = 
       {

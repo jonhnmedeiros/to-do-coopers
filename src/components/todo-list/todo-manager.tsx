@@ -8,10 +8,8 @@ import TodoList from "./todo-list";
 import TodoCrudMethods, { CRUDState } from "@/app/hooks/todo-list-crud";
 //import NewTodoItem from "../new-todo-item";
 import TodoToolbar from "../todo-toolbar";
-import { useSession } from "next-auth/react";
 
 const TodoManager = ({showTodos = false}) => {
-  const { data } = useSession();
 
   const {
     crudData,
