@@ -8,8 +8,11 @@ import TodoList from "./todo-list";
 import TodoCrudMethods, { CRUDState } from "@/app/hooks/todo-list-crud";
 //import NewTodoItem from "../new-todo-item";
 import TodoToolbar from "../todo-toolbar";
+import { useSession } from "next-auth/react";
 
 const TodoManager = ({showTodos = false}) => {
+  const { data } = useSession();
+
   const {
     crudData,
     //crudError,
@@ -34,10 +37,13 @@ const TodoManager = ({showTodos = false}) => {
   }, []);
 
   useEffect(() => {
-    const filtered = crudData.filter((todoItem) => {
-      return todoItem.label.toLowerCase().includes(query.toLowerCase());
-    });
-    console.log("filtered", crudData, filtered);
+    // const filtered = crudData.filter((todoItem) => {
+    //   if (!data || !data.user || typeof data.user.email !== 'string') {
+    //     return false;
+    //   }
+    //   return todoItem.userId === data.user.email;
+    // });
+    const filtered = crudData;
     setFilteredTodoList(filtered);
   }, [query, crudData]);
 
@@ -59,16 +65,15 @@ const TodoManager = ({showTodos = false}) => {
 
   const todoDeleted = async () => {
     await fetchTodoItems();
+    window.location.reload();
   };
 
-    const findDoneItems =  () => {
-      //await getTodoListApi();
-      return filteredTodoList.filter((todo) => todo.done);
-    };
+  const findDoneItems =  () => {
+    return  filteredTodoList.filter((todo) => todo.done);
+  };
 
-    const  findNotDoneItems = () => {
-      //window.location.reload();
-    return filteredTodoList.filter((todo) => todo.done === false);
+  const  findNotDoneItems =  () => {
+    return  filteredTodoList.filter((todo) => todo.done === false);
   }
 
   return (

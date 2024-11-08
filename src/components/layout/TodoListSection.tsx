@@ -1,4 +1,6 @@
+import { useSession } from "next-auth/react";
 import { ListCard } from "../ListCard"
+import Link from "next/link";
 //import { ListItem } from "../ListItem"
 // import TodoManager from "../todo-list/todo-manager"
 
@@ -71,6 +73,8 @@ export const TodoListSection = () => {
   //   },
   // ]
 
+  const { status } = useSession();
+
   return (
     <section id="todo-list">
       
@@ -81,21 +85,28 @@ export const TodoListSection = () => {
       </header>
       <div id="todo-screenshots" className="flex flex-wrap gap-4 justify-center items-start mt-10 md:mt-[80px] bg-white bg-[url('/bg-todo-section.png')] bg-no-repeat bg-left">
 
-        <ListCard
-          title="To-do"
-          message="Take a breath. Start doing."
-          color="bg-green-500"
-          allowNew
-          //items={todoItems}
-        >
-        </ListCard>
-        <ListCard
-          title="Done"
-          message="Congratulions!"
-          count={5}
-          color="bg-orange-500"
-          //items={doneItems}
-        />
+        { status === "authenticated" ? (
+          <>
+            <ListCard
+              title="To-do"
+              message="Take a breath. Start doing."
+              color="bg-green-500"
+              allowNew
+              //items={todoItems}
+            >
+            </ListCard>
+            <ListCard
+              title="Done"
+              message="Congratulions!"
+              count={5}
+              color="bg-orange-500"
+              //items={doneItems}
+            />
+          </>
+        ) : 
+          <Link href="/"><div className="text-[26px] underline">Login to create your todos</div></Link>
+        }
+
         
       </div>
     </section>

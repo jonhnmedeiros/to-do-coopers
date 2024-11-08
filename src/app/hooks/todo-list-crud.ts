@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import {
   TodoItemType,
   TodoItemTypeWithouId,
 } from "@/models/Todo";
+import { useSession } from "next-auth/react";
+
 
 export enum CRUDState {
   Unknown = 0,
@@ -12,6 +14,8 @@ export enum CRUDState {
 }
 
 const TodoCrudMethods = () => {
+  const { data } = useSession();
+
   const [crudData, setCrudData] = useState([] as Array<TodoItemType>);
   const [crudError, setCrudError] = useState("");
   const [crudMethodState, setCrudMethodState] = useState(CRUDState.Loading);
@@ -24,7 +28,6 @@ const TodoCrudMethods = () => {
       const data = await res.json();
       // await new Promise((resolve) => setTimeout(resolve, 1000));
       // const data = fakeData;
-      console.log(data);
       setCrudData(data);
       setCrudMethodState(CRUDState.Done);
     } catch (err) {
@@ -35,9 +38,23 @@ const TodoCrudMethods = () => {
   };
 
   const createTodoItemApi = async (newTodo: TodoItemTypeWithouId) => {
+    //const newTodoItem = JSON.stringify(newTodo);
+
+    //console.log(data);
+    //const params = { ...newTodoItem, email: data?.user?.email };
+
+    const body = 
+      {
+        label: newTodo.label,
+        done: newTodo.done,
+        userId: data?.user?.email,
+      }
+    
+
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify(newTodo),
+      //body: JSON.stringify(newTodo),
+      body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json",
       },

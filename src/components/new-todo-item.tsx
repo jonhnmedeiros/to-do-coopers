@@ -10,11 +10,11 @@ import Image from 'next/image'
 const NewTodoItem = (props: {
   addTodoItem: (newTodoItem: TodoItemTypeWithouId) => Promise<void>;
 }) => {
+
   const [newTodoLabel, setNewTodoLabel] = useState("");
   const [showForm, setShowForm] = useState(false);
   function submitNewTodoItem(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(newTodoLabel);
     const newTodoItem: TodoItemTypeWithouId = {
       label: newTodoLabel,
       done: false,

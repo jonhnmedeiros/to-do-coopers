@@ -11,7 +11,7 @@ import {
 import { useState } from "react";
 import { TodoItemPropType } from "./todo-item-prop-def";
 //import { FaTrashAlt } from "react-icons/fa";
-import Image from 'next/image'
+import Image from 'next/image';
 
 const TodoItem = (props: TodoItemPropType) => {
   const { done, label, _id, setTodo, deleteTodo } = props;
@@ -19,13 +19,15 @@ const TodoItem = (props: TodoItemPropType) => {
   const [edit, setEdit] = useState(false);
   const [newLabel, setNewLabel] = useState(label);
   function checkboxHandler() {
-    setTodo({ ...todoItem, done: done ? false : true });
+    setTodo({ ...todoItem, done: done ? false : true});
+    window.location.reload();
   }
   function editHandler(save = true) {
     if (edit && save) {
-      setTodo({ ...todoItem, label: newLabel });
+      setTodo({ ...todoItem, label: newLabel});
     }
     setEdit((isEdit) => !isEdit);
+    
   }
   function deleteHandler() {
     deleteTodo(_id);
