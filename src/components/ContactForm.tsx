@@ -2,8 +2,31 @@ import React from 'react';
 import Image from 'next/image'
 
 const ContactForm: React.FC = () => {
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        },
+        body: JSON.stringify({
+            access_key: process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY,
+            name: e.target.name.value,
+            email: e.target.email.value,
+            telephone: e.target.telephone.value,
+            message: e.target.message.value,
+        }),
+    });
+    const result = await response.json();
+    if (result.success) {
+        console.log(result);
+        e.target.reset();
+    }
+}
+
   return (
-    <form className="flex flex-col self-center px-16 py-20 max-w-full text-base bg-white rounded shadow-lg text-slate-900 w-[700px] max-md:px-5">
+    <form onSubmit={handleSubmit} className="flex flex-col self-center px-16 py-20 max-w-full text-base bg-white rounded shadow-lg text-slate-900 w-[700px] max-md:px-5">
       <div className="flex gap-6 self-start text-2xl tracking-widest uppercase">
         <Image src="/icon-mail.png" alt="Icon mail" width={60} height={60}/>
         <div>
