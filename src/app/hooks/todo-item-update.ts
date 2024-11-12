@@ -56,12 +56,33 @@ const TodoItemApi = () => {
     }
   };
 
+  const deleteTodoAllItensApi = async (userId: string, done: boolean ) => {
+    try {
+      setUpdateState(CRUDState.Loading);
+      const response = await fetch("/api/todo/all", {
+        method: "DELETE",
+        body: JSON.stringify({ userId, done }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const res = await response.json();
+      console.log(res);
+      setUpdateState(CRUDState.Done);
+      return res;
+    } catch (err) {
+      setUpdateError("Error deleting todos itens");
+      setUpdateState(CRUDState.Error);
+    }
+  };
+
   return {
     updateState,
     updateData,
     updateError,
     updateTodoListApi,
     deleteTodoItemApi,
+    deleteTodoAllItensApi
   };
 };
 

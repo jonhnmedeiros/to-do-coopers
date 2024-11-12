@@ -9,6 +9,7 @@ import TodoCrudMethods
 from "@/app/hooks/todo-list-crud";
 import { TodoItemType } from '@/models/Todo';
 import { useSession } from 'next-auth/react';
+import TodoItemApi from '@/app/hooks/todo-item-update';
 
 
 
@@ -35,6 +36,8 @@ export const ListCard = ({
     crudData,
     getTodoListApi,
   } = TodoCrudMethods();
+
+  const { deleteTodoAllItensApi } =  TodoItemApi();
 
   const [filteredTodoList, setFilteredTodoList] = useState(
     [] as TodoItemType[]
@@ -67,9 +70,21 @@ export const ListCard = ({
     await getTodoListApi();
   }
 
+  async function deleteAllItems() {
+    if ( allowNew ) {
+      await deleteTodoAllItensApi(data?.user?.email ?? "", false);
+    } else { 
+      await deleteTodoAllItensApi(data?.user?.email ?? "", true);
+    }
+    await fetchTodoItems();
+    window.location.reload();
+  }
+
   function findDoneItems() {
     return filteredTodoList.filter((todo) => todo.done);
   }
+
+
 
   return (
     <div className="flex flex-col w-[380px] max-w-[380px] shadow-lg bg-white">
@@ -98,7 +113,7 @@ export const ListCard = ({
             } */}
             {/* {children} */}
           </ul>
-          <Button text="erase all" extraClasses="mt-2 md:mt-[18px] bg-black" onClick={()=>{}} />
+          <Button text="erase all" extraClasses="mt-2 md:mt-[18px] bg-black" onClick={()=>{deleteAllItems()}} />
         </div>
       </section>
 

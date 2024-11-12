@@ -94,7 +94,7 @@ export const TodoListSection = () => {
             </ListCard>
             <ListCard
               title="Done"
-              message="Congratulions!"
+              message="Congratulations!"
               count={5}
               color="bg-orange-500"
               //items={doneItems}
