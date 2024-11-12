@@ -1,9 +1,8 @@
 "use client";
 import { Suspense } from "react";
 import { TodoItemType } from "@/models/Todo";
-//import TodoItem from "../todo-item/todo-item";
-import LoadingTodoItem from "../loading-todo-item";
-import TodoItemMananger from "../todo-item/todo-item-manager";
+import LoadingItem from "../LoadingItem";
+import TodoItemMananger from "../todo-item/TodoItemManager";
 
 interface TodoListProps {
   todoList: TodoItemType[];
@@ -27,7 +26,7 @@ const TodoList = (props: TodoListProps) => {
     );
   });
   return (
-    <Suspense fallback={<LoadingTodoItem></LoadingTodoItem>}>
+    <Suspense fallback={<LoadingItem></LoadingItem>}>
       <ul>{listItems}</ul>
     </Suspense>
   );

@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { TodoItemTypeWithouId } from "@/models/Todo";
-import NewTodoItem from "./new-todo-item";
-//import TodoSearchbar from "./todo-searchbar";
+import NewItem from "./NewItem";
 
 export interface TodoToolbarProps {
   addTodoItem: (newTodoItem: TodoItemTypeWithouId) => Promise<void>;
@@ -9,7 +8,7 @@ export interface TodoToolbarProps {
   setQueryString: Dispatch<SetStateAction<string>>;
 }
 
-const TodoToolbar = (props: TodoToolbarProps) => {
+const Toolbar = (props: TodoToolbarProps) => {
   const { 
     addTodoItem, 
     //setQueryString, 
@@ -17,13 +16,13 @@ const TodoToolbar = (props: TodoToolbarProps) => {
   } = props;
   return (
     <div className="flex justify-between flex-wrap mb-5">
-      {/* <TodoSearchbar
+      {/* <Searchbar
         queryString={queryString}
         setQueryString={setQueryString}
-      ></TodoSearchbar> */}
-      <NewTodoItem addTodoItem={addTodoItem}></NewTodoItem>
+      ></Searchbar> */}
+      <NewItem addTodoItem={addTodoItem}></NewItem>
     </div>
   );
 };
 
-export default TodoToolbar;
+export default Toolbar;

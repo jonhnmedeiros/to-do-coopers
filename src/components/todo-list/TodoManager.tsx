@@ -4,10 +4,9 @@ import {
   TodoItemType,
   TodoItemTypeWithouId,
 } from "@/models/Todo";
-import TodoList from "./todo-list";
+import TodoList from "./TodoList";
 import TodoCrudMethods, { CRUDState } from "@/app/hooks/todo-list-crud";
-//import NewTodoItem from "../new-todo-item";
-import TodoToolbar from "../todo-toolbar";
+import Toolbar from "../Toolbar";
 
 const TodoManager = ({showTodos = false}) => {
 
@@ -80,7 +79,7 @@ const TodoManager = ({showTodos = false}) => {
         className={`${crudMethodState === CRUDState.Done ? "block" : "hidden"}`}
       >
         {showTodos ?           
-          <TodoToolbar
+          <Toolbar
             addTodoItem={addTodoItem}
             queryString={query}
             setQueryString={setQuery}

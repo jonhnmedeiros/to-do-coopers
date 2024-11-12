@@ -1,6 +1,6 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
-const TodoSearchbar = (props: {
+const Searchbar = (props: {
   queryString: string;
   setQueryString: Dispatch<SetStateAction<string>>;
 }) => {
@@ -21,4 +21,4 @@ const TodoSearchbar = (props: {
   );
 };
 
-export default TodoSearchbar;
+export default Searchbar;

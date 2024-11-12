@@ -1,5 +1,5 @@
-const LoadingTodoItem = () => {
+const LoadingItem = () => {
   return <div style={{ backgroundColor: "red" }}>Loading</div>;
 };
 
-export default LoadingTodoItem;
+export default LoadingItem;

@@ -3,7 +3,7 @@ import { Button } from './Button';
 //import { ItemProps } from './ListItem';
 // import { NewItem } from './NewItem';
 // import { ListItem, ItemProps } from './ListItem';
-import TodoManager from './todo-list/todo-manager';
+import TodoManager from './todo-list/TodoManager';
 import TodoCrudMethods 
       //{ CRUDState } 
 from "@/app/hooks/todo-list-crud";

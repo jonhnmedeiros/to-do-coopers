@@ -5,8 +5,7 @@ const ContactForm: React.FC = () => {
   return (
     <form className="flex flex-col self-center px-16 py-20 max-w-full text-base bg-white rounded shadow-lg text-slate-900 w-[700px] max-md:px-5">
       <div className="flex gap-6 self-start text-2xl tracking-widest uppercase">
-        {/* <img src="/icon-mail.png" alt="" className="object-contain shrink-0 aspect-square w-[60px]" /> */}
-        <Image src="/icon-mail.png" alt="Woman pointing to up right" width={60} height={60}/>
+        <Image src="/icon-mail.png" alt="Icon mail" width={60} height={60}/>
         <div>
           GET IN <br />
           <span className="font-bold">TOUCH</span>

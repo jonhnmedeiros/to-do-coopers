@@ -1,16 +1,7 @@
 "use client";
-//import { TodoItemType } from "@/models/Todo";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  //faBan,
-  //faCheck,
-  //faCheckCircle,
-  //faEdit,
-  //faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+
 import { useState } from "react";
-import { TodoItemPropType } from "./todo-item-prop-def";
-//import { FaTrashAlt } from "react-icons/fa";
+import { TodoItemPropType } from "@/models/Todo";
 import Image from 'next/image';
 
 const TodoItem = (props: TodoItemPropType) => {
@@ -58,18 +49,9 @@ const TodoItem = (props: TodoItemPropType) => {
             onChange={(e) => setNewLabel(e.target.value)}
             onKeyUpCapture={(e) => {if (e.key === 'Enter') editHandler(); if (e.key === 'Escape') editHandler(false);}}
           ></input>
-          {/* <div>
-            <button className="ml-3" onClick={() => editHandler()}>
-              <FontAwesomeIcon icon={faCheckCircle}></FontAwesomeIcon>
-            </button>
-            <button className="ml-3" onClick={() => editHandler(false)}>
-              <FontAwesomeIcon icon={faBan}></FontAwesomeIcon>
-            </button>
-          </div> */}
         </div>
         <div className="text-[12px] leading-6 w-[50px] text-center">
           <button className="hidden md:group-hover:block text-[#999999] text-[12px] font-bold" onClick={() => deleteHandler()} >delete</button>
-          {/* <button className="hidden group-hover:inline-block md:group-hover:hidden text-[#999999] leading-4 text-[16px] font-bold"><FaTrashAlt /></button> */}
         </div>
       </div>
     </>

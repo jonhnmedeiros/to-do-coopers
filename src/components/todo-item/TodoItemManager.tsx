@@ -1,11 +1,11 @@
-import { TodoItemType } from "@/models/Todo";
-import TodoItem from "./todo-item";
-import { TodoItemManangerProp } from "./todo-item-prop-def";
+import { TodoItemType, TodoItemManagerProp } from "@/models/Todo";
+import TodoItem from "./TodoItem";
+
 import { useEffect } from "react";
 import TodoItemApi from "@/app/hooks/todo-item-update";
 import { CRUDState } from "@/app/hooks/todo-list-crud";
 
-const TodoItemMananger = (props: TodoItemManangerProp) => {
+const TodoItemMananger = (props: TodoItemManagerProp) => {
   const { done, label, _id, setTodo, todoDeleted } = props;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-expressions

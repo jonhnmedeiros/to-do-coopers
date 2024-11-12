@@ -1,9 +1,6 @@
 import { useSession } from "next-auth/react";
 import { ListCard } from "../ListCard"
 import Link from "next/link";
-//import { ListItem } from "../ListItem"
-// import TodoManager from "../todo-list/todo-manager"
-
 
 export const TodoListSection = () => {
 
