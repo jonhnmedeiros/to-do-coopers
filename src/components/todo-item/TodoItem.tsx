@@ -3,19 +3,22 @@
 import { useState } from "react";
 import { TodoItemPropType } from "@/models/Todo";
 import Image from 'next/image';
+import { useSession } from "next-auth/react";
 
 const TodoItem = (props: TodoItemPropType) => {
+  const { data } = useSession();
+
   const { done, label, _id, setTodo, deleteTodo } = props;
   const todoItem = { done, label, _id };
   const [edit, setEdit] = useState(false);
   const [newLabel, setNewLabel] = useState(label);
   function checkboxHandler() {
-    setTodo({ ...todoItem, done: done ? false : true});
+    setTodo({ ...todoItem, done: done ? false : true, userId: data?.user?.email ?? ''});
     window.location.reload();
   }
   function editHandler(save = true) {
     if (edit && save) {
-      setTodo({ ...todoItem, label: newLabel});
+      setTodo({ ...todoItem, label: newLabel, userId: data?.user?.email ?? ''});
     }
     setEdit((isEdit) => !isEdit);
     

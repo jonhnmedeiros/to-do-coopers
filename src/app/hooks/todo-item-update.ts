@@ -7,6 +7,7 @@ import {
 import { CRUDState } from "./todo-list-crud";
 
 const TodoItemApi = () => {
+
   const [updateData, setUpdateData] = useState() as [
     TodoItemType,
     React.Dispatch<React.SetStateAction<TodoItemType>>
@@ -16,6 +17,7 @@ const TodoItemApi = () => {
   const url = "/api/todo";
 
   const updateTodoListApi = async (changedTodo: TodoItemType) => {
+
     try {
       setUpdateState(CRUDState.Loading);
       const response = await fetch(url, {

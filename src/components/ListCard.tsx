@@ -8,6 +8,7 @@ import TodoCrudMethods
       //{ CRUDState } 
 from "@/app/hooks/todo-list-crud";
 import { TodoItemType } from '@/models/Todo';
+import { useSession } from 'next-auth/react';
 
 
 
@@ -28,6 +29,7 @@ export const ListCard = ({
   count, 
   allowNew = false}: TodoCardProps) => {
 
+  const { data } = useSession();
 
   const {
     crudData,
@@ -51,15 +53,15 @@ export const ListCard = ({
   }, []);
 
   useEffect(() => {
-    // const filtered = crudData.filter((todoItem) => {
-    //   if (!data || !data.user || typeof data.user.email !== 'string') {
-    //     return false;
-    //   }
-    //   return todoItem.userId === data.user.email;
-    // });
-    const filtered = crudData;
+    const filtered = crudData.filter((todoItem) => {
+      if (!data || !data.user || typeof data.user.email !== 'string') {
+        return false;
+      }
+      return todoItem.userId === data.user.email;
+    });
+    //const filtered = crudData;
     setFilteredTodoList(filtered);
-  }, [query, crudData]);
+  }, [query, crudData, data]);
 
   async function fetchTodoItems() {
     await getTodoListApi();

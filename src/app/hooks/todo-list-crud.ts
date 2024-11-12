@@ -43,10 +43,9 @@ const TodoCrudMethods = () => {
       {
         label: newTodo.label,
         done: newTodo.done,
-        userId: data?.user?.email,
-      }
-    
-
+        userId: data?.user?.email ?? "",
+      };
+      
     const response = await fetch(url, {
       method: "POST",
       //body: JSON.stringify(newTodo),

@@ -48,6 +48,7 @@ export async function DELETE(request: Request) {
   const result = await collection.deleteOne(query);
   return NextResponse.json(result);
 }
+
 async function getTodoItemData() {
   const { client, collection } = await getClientAndCollection();
   const todos = await collection.find({}).toArray();
@@ -63,6 +64,7 @@ export async function PATCH(request: Request) {
     {
       label: body.label,
       done: body.done,
+      userId: body.userId,
     },
     { returnDocument: "after" }
   );
