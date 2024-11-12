@@ -2,7 +2,8 @@ import React from 'react';
 import Image from 'next/image'
 
 const ContactForm: React.FC = () => {
-  async function handleSubmit(e) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async function handleSubmit(e:any) {
     e.preventDefault();
     const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
